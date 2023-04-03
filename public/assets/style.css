@@ -264,8 +264,8 @@ body {
   display: flex;
   align-items: center;
   margin-top: 2rem;
-  background-color: var(--primary);
-  border: 1px solid #eee;
+  /* background-color: var(--primary); */
+  /* border: 1px solid #eee; */
   padding-left: 2rem;
 }
 

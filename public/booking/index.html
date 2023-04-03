@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/booking.css" />
+    <title>Booking Alat Tes Psikologi</title>
+  </head>
+
+  <body class="main_bg">
+    <div class="form">
+      <div class="form-text">
+        <h1>
+          <span><img src="../assets/art-1.png" alt="" /></span>Book Now
+          <span><img src="../assets/art-1.png" alt="" /></span>
+        </h1>
+        <p>Isi data terlebih dahulu agar kami bisa memproses pemesanan anda</p>
+      </div>
+      <div class="main-form">
+        <form action="index.php" method="get">
+          <div>
+            <span>Nama Lengkap</span>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Write your name here..."
+              required
+            />
+          </div>
+          <div>
+            <span>Email</span>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Write your email here..."
+              required
+            />
+          </div>
+          <div>
+            <span>Instansi</span>
+            <input
+              type="text"
+              name="instansi"
+              id="instansi"
+              placeholder="Cth: Biro Psikologi Pasim"
+              required
+            />
+          </div>
+          <!-- <div>
+            <span>How Much?</span>
+            <select name="people" id="people" required>
+              <option value=""><---People</option>
+              <option value="1">1 People</option>
+              <option value="2">2 People</option>
+              <option value="3">3 People</option>
+              <option value="4">4 People</option>
+            </select>
+          </div> -->
+          <div>
+            <span>Alat Tes</span>
+            <input
+              type="text"
+              name="alat-tes"
+              id="alat-tes"
+              placeholder="Cth: IST, PAPI, Pauli"
+              required
+            />
+          </div>
+          <div>
+            <span>Jumlah</span>
+            <input
+              type="text"
+              name="jumlah"
+              id="jumlah"
+              placeholder="Cth: 10 Paket"
+              required
+            />
+          </div>
+          <div>
+            <span>Waktu Peminjaman</span>
+            <input
+              type="date"
+              name="loan-date"
+              id="date"
+              placeholder="date"
+              required
+            />
+          </div>
+          <div>
+            <span>Waktu Pengembalian</span>
+            <input
+              type="date"
+              name="payback-date"
+              id="date"
+              placeholder="date"
+              required
+            />
+          </div>
+          <div>
+            <span>No. Telepon</span>
+            <input
+              type="text"
+              name="telp"
+              id="telp"
+              placeholder="Write your number here..."
+              required
+            />
+          </div>
+          <div id="submit">
+            <input type="submit" value="SUBMIT" id="submit" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

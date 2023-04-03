@@ -1,0 +1,89 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  width: 100hv;
+}
+
+body {
+  margin: 40px;
+  font-family: "Ubuntu", Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.table-admin {
+  max-width: 900px;
+  border: 1px solid aqua;
+  background-color: #efefef33;
+  padding: 15px;
+  overflow: auto;
+  margin: auto;
+  border-radius: 4px;
+}
+
+table {
+  width: 100%;
+  font-size: 14px;
+  color: #444;
+  white-space: nowrap;
+  border-collapse: collapse;
+}
+
+table > thead {
+  background-color: rgb(5, 67, 106);
+  color: whitesmoke;
+}
+
+table > thead th {
+  padding: 15px;
+}
+
+table th,
+table td {
+  border: 1px solid black;
+  padding: 10px 15px;
+}
+
+.action-btn {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.action-btn > a {
+  text-decoration: none;
+  /* color: #444;
+  background: whitesmoke; */
+  border: 1px solid rgb(8, 133, 191);
+  display: inline-block;
+  padding: 8px 18px;
+  font-weight: bold;
+  border-radius: 10px;
+  transition: 0.3s ease-in-out;
+}
+
+.action-btn > a:nth-child(1) {
+  background: rgb(9, 50, 128);
+  color: white;
+}
+
+.action-btn > a:nth-child(2) {
+  background: rgb(205, 33, 21);
+  color: white;
+}
+
+.action-btn > a:hover {
+  box-shadow: 0 4px 10px #0003;
+}
+
+table > tbody > tr {
+  background-color: whitesmoke;
+  transition: 0.3s ease-in-out;
+}
+
+table > tbody > tr:nth-child(even) {
+  background-color: rgb(157, 180, 233);
+}
+
+table > tbody > tr:hover {
+  filter: drop-shadow(0 6px 10px #0005);
+}
