@@ -48,7 +48,7 @@
           Menyediakan Alat Tes Psikologi, Diktat Psikodiagnostika, dan
           Inventaris Alat Ukur.
         </p>
-        <a href="#kontak" class="cta">Hubungi kami</a>
+        <a href="login/index.html" class="cta">Booking Sekarang</a>
       </main>
     </section>
     <!-- Hero Section end -->
@@ -72,7 +72,6 @@
             coba untuk mengetahui tipe kepribadian anda dan melihat bidang yang
             cocok dengan anda !
           </p>
-          <button type="submit" class="btn-try">Coba Sekarang</button>
         </div>
       </div>
     </section>
@@ -125,14 +124,14 @@
           class="map"
         ></iframe>
 
-        <form action="">
+        <form action="" name="daftar">
           <div class="input-grup">
             <p>
               Daftar sekarang! mudah dan cepat, untuk membantu proses pemesanan
               anda! Kilk Tombol dibawah
             </p>
           </div>
-          <button type="submit" class="btn">Daftar</button>
+          <button class="btn">Daftar</button>
         </form>
       </div>
     </section>
@@ -159,6 +158,10 @@
     <!-- Feather Icons -->
     <script>
       feather.replace();
+      document.daftar.onclick = (e) => {
+        e.preventDefault();
+        location.href = "/login/";
+      };
     </script>
 
     <!-- My JavaScript -->

@@ -16,10 +16,10 @@
       <input type="checkbox" id="check" />
       <div class="login-form">
         <header>Form Login</header>
-        <form action="#">
-          <input type="text" placeholder="Username" />
-          <input type="password" placeholder="Password" />
-          <input type="button" value="login" class="button" />
+        <form action="#" name="login">
+          <input type="text" name="username" placeholder="Username" />
+          <input type="password" name="password" placeholder="Password" />
+          <button class="button">login</button>
         </form>
         <div class="signup">
           <span class="signup">
@@ -30,12 +30,12 @@
       </div>
       <div class="registration-form">
         <header>Form Registrasi</header>
-        <form action="#">
-          <input type="text" placeholder="Masukkan Email" />
-          <input type="text" placeholder="Masukkan Username" />
-          <input type="password" placeholder="Masukkan Password" />
-          <input type="text" placeholder="No. Telepon" />
-          <input type="button" value="Daftar" class="button" />
+        <form action="#" name="daftar">
+          <input type="text" name="email" placeholder="Masukkan Email" />
+          <input type="text" name="user" placeholder="Masukkan Username" />
+          <input type="password" name="pass" placeholder="Masukkan Password" />
+          <input type="text" name="telp" placeholder="No. Telepon" />
+          <button>Daftar</button>
         </form>
         <div class="signup">
           <span class="signup">
@@ -45,5 +45,48 @@
         </div>
       </div>
     </div>
+    <script>
+      document.login.onsubmit = async (e) => {
+        e.preventDefault();
+        const username = document.login.username.value;
+        const password = document.login.password.value;
+        await fetch("/api/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username,
+            password,
+          }),
+        });
+        location.href = "/admin";
+      };
+
+      document.daftar.onsubmit = async (e) => {
+        e.preventDefault();
+        alert("ok");
+        const email = document.daftar.email.value;
+        const user = document.daftar.user.value;
+        const pass = document.daftar.pass.value;
+        const telp = document.daftar.telp.value;
+
+        const res = await fetch("/api/booking", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            user,
+            pass,
+            telp,
+          }),
+        });
+        const a = await res.text();
+        alert(a);
+        location.reload();
+      };
+    </script>
   </body>
 </html>
