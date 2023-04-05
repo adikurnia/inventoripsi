@@ -18,7 +18,7 @@
         <p>Isi data terlebih dahulu agar kami bisa memproses pemesanan anda</p>
       </div>
       <div class="main-form">
-        <form action="index.php" method="get">
+        <form action="" name="booking">
           <div>
             <span>Nama Lengkap</span>
             <input
@@ -53,7 +53,7 @@
             <span>Alat Tes</span>
             <input
               type="text"
-              name="alat-tes"
+              name="alat_tes"
               id="alat-tes"
               placeholder="Cth: IST, PAPI, Pauli"
               required
@@ -73,7 +73,7 @@
             <span>Waktu Peminjaman</span>
             <input
               type="text"
-              name="loan-date"
+              name="loan_date"
               id="date"
               placeholder="DD/MM/YYYY"
               required
@@ -83,7 +83,7 @@
             <span>Waktu Pengembalian</span>
             <input
               type="text"
-              name="payback-date"
+              name="payback_date"
               id="date"
               placeholder="DD/MM/YYYY"
               required
@@ -105,5 +105,37 @@
         </form>
       </div>
     </div>
+    <script>
+      document.booking.onsubmit = async (e) => {
+        e.preventDefault();
+        const name = document.booking.name.value;
+        const email = document.booking.email.value;
+        const instansi = document.booking.instansi.value;
+        const alat_tes = document.booking.alat_tes.value;
+        const jumlah = document.booking.jumlah.value;
+        const loan_date = document.booking.loan_date.value;
+        const payback_date = document.booking.payback_date.value;
+        const telp = document.booking.telp.value;
+
+        const res = await fetch("/api/booking", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            instansi,
+            alat_tes,
+            jumlah,
+            loan_date,
+            payback_date,
+            telp,
+          }),
+        });
+        const a = await res.text();
+        location.href = "/";
+      };
+    </script>
   </body>
 </html>

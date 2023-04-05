@@ -50,7 +50,7 @@
         e.preventDefault();
         const username = document.login.username.value;
         const password = document.login.password.value;
-        await fetch("/api/login", {
+        const a = await fetch("/api/login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -60,7 +60,10 @@
             password,
           }),
         });
-        location.href = "/admin";
+        alert(await a.text());
+        if (a.ok) {
+          location.href = "/booking";
+        }
       };
 
       document.daftar.onsubmit = async (e) => {
@@ -71,7 +74,7 @@
         const pass = document.daftar.pass.value;
         const telp = document.daftar.telp.value;
 
-        const res = await fetch("/api/booking", {
+        const res = await fetch("/api/daftar", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

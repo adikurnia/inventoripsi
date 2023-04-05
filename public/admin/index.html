@@ -16,49 +16,99 @@
             <th>No.</th>
             <th>Nama</th>
             <th>Email</th>
+            <th>instansi</th>
+            <th>Alat Tes</th>
+            <th>Jumlah</th>
+            <th>Waktu Peminjaman</th>
+            <th>Waktu Pengembalian</th>
             <th>No. Telepon</th>
             <th>Aksi</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Adi Kurniawan</td>
-            <td>email@gmail.com</td>
-            <td>082348991442</td>
-            <td>
-              <span class="action-btn">
-                <a href="#">Edit</a>
-                <a href="#">Hapus</a>
-              </span>
-            </td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Adi Kurniawan</td>
-            <td>email@gmail.com</td>
-            <td>082348991442</td>
-            <td>
-              <span class="action-btn">
-                <a href="#">Edit</a>
-                <a href="#">Hapus</a>
-              </span>
-            </td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Adi Kurniawan</td>
-            <td>email@gmail.com</td>
-            <td>082348991442</td>
-            <td>
-              <span class="action-btn">
-                <a href="#">Edit</a>
-                <a href="#">Hapus</a>
-              </span>
-            </td>
-          </tr>
-        </tbody>
+        <tbody></tbody>
       </table>
+      <button id="logout">Logout</button>
     </div>
+    <script>
+      fetch("/api/me")
+        .then((response) => response.json())
+        .then((akun) => {});
+      document.querySelector("#logout").addEventListener("click", async () => {
+        const logout = await fetch("/api/logout");
+        if (logout.ok) {
+          location.href = "/";
+        }
+      });
+
+      fetch("/api/booking")
+        .then((response) => response.json())
+        .then((booking) => {
+          console.log(booking);
+          const tbody = document.querySelector("tbody");
+          booking.forEach((b, i) => {
+            const tr = document.createElement("tr");
+
+            const tdNomor = document.createElement("td");
+            tdNomor.textContent = i + 1;
+            tr.appendChild(tdNomor);
+
+            const tdUsername = document.createElement("td");
+            tdUsername.textContent = b.username;
+            tr.appendChild(tdUsername);
+
+            const tdEmail = document.createElement("td");
+            tdEmail.textContent = b.email;
+            tr.appendChild(tdEmail);
+
+            const tdInstansi = document.createElement("td");
+            tdInstansi.textContent = b.instansi;
+            tr.appendChild(tdInstansi);
+
+            const tdAlat = document.createElement("td");
+            tdAlat.textContent = b.alat_tes;
+            tr.appendChild(tdAlat);
+
+            const tdJumlah = document.createElement("td");
+            tdJumlah.textContent = b.jumlah;
+            tr.appendChild(tdJumlah);
+
+            const tdPeminjaman = document.createElement("td");
+            tdPeminjaman.textContent = b.peminjaman;
+            tr.appendChild(tdPeminjaman);
+
+            const tdPengembalian = document.createElement("td");
+            tdPengembalian.textContent = b.pengembalian;
+            tr.appendChild(tdPengembalian);
+
+            const tdTelp = document.createElement("td");
+            tdTelp.textContent = b.telepon;
+            tr.appendChild(tdTelp);
+
+            const tdHapus = document.createElement("td");
+            const tdSpan = document.createElement("span");
+            const tdA = document.createElement("a");
+            tdA.textContent = "Hapus";
+            tdSpan.appendChild(tdA);
+            tdHapus.appendChild(tdSpan);
+            tdSpan.className = "action-btn";
+            tr.appendChild(tdHapus);
+
+            tdA.onclick = async (e) => {
+              e.preventDefault();
+              if (
+                confirm(`Apakah Anda yakin ingin menghapus ${b.username} ?`)
+              ) {
+                const res = await fetch(`/api/booking/${b.email}`, {
+                  method: "DELETE",
+                });
+                alert(await res.text());
+                location.reload();
+              }
+            };
+
+            tbody.appendChild(tr);
+          });
+        });
+    </script>
   </body>
 </html>
