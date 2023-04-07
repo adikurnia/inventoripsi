@@ -106,7 +106,7 @@ app.post("/api/login", async (req, res) => {
     }
   } else {
     res.status(401);
-    res.send("Mahasiswa tidak ditemukan.");
+    res.send("Data tidak ditemukan.");
   }
 });
 
