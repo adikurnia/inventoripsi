@@ -102,6 +102,9 @@
           <div id="submit">
             <input type="submit" value="SUBMIT" id="submit" />
           </div>
+          <div id="keluar">
+            <input type="button" name="logout" class="logout" value="Logout" />
+          </div>
         </form>
       </div>
     </div>
@@ -135,6 +138,14 @@
         });
         const a = await res.text();
         location.href = "/";
+      };
+      document.querySelector(".logout").onclick = (e) => {
+        e.preventDefault();
+        fetch("/api/logout").then((response) => {
+          if (response.ok) {
+            location.href = "/";
+          }
+        });
       };
     </script>
   </body>

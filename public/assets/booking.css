@@ -71,24 +71,28 @@
   font-size: 25px;
 }
 
-#submit {
+#submit,
+#keluar {
   width: 100%;
   text-align: center;
 }
-#submit input {
+#submit input,
+#keluar input {
   font-family: "Akaya Telivigala", cursive;
   width: 200px;
   background-color: yellow !important;
   color: black !important;
   transition: all 0.3s;
 }
-#submit input:hover {
+#submit input:hover,
+#keluar input:hover {
   font-family: "Akaya Telivigala", cursive;
   width: 200px;
   background-color: white !important;
   color: black !important;
 }
-#submit input:active {
+#submit input:active,
+#keluar input:active {
   font-size: 19px;
   background-color: rgb(46, 20, 5) !important;
   color: black !important;
